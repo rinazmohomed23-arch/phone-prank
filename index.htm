@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyber Prank</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #020805;
+  color: #00ff88;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+main { width: 100%; max-width: 600px; }
+h1 { color: #ff304f; text-align: center; }
+.panel {
+  border: 1px solid #00ff88;
+  padding: 22px;
+  box-shadow: 0 0 20px #00ff8833;
+}
+#status { font-size: 20px; margin: 20px 0; }
+.bar {
+  border: 1px solid #00ff88;
+  height: 18px;
+  padding: 2px;
+}
+#progress {
+  background: #00ff88;
+  width: 0%;
+  height: 100%;
+}
+#log { line-height: 2; overflow-wrap: anywhere; }
+#reveal { display: none; text-align: center; }
+button {
+  padding: 13px 20px;
+  background: #00ff88;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+.small { color: #a5c8b5; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <section class="panel" id="scanner">
+    <p>CYBER SECURITY SIMULATOR</p>
+    <h1>DEVICE SCAN</h1>
+    <p class="small">FICTIONAL PRANK SIMULATION</p>
+    <div id="status">Initializing animation...</div>
+    <div class="bar"><div id="progress"></div></div>
+    <div id="log"></div>
+  </section>
+  <section id="reveal">
+    <h1>😂 GOT YOU!</h1>
+    <h2>JUST A PRANK!</h2>
+    <p>Your phone is not hacked.</p>
+    <p>No data was accessed or collected.</p>
+    <button onclick="location.reload()">PLAY AGAIN</button>
+  </section>
+</main>
+<script>
+const messages = [
+  "Initializing fake scanner...",
+  "Simulating device scan...",
+  "Checking fictional security status...",
+  "Running visual effects...",
+  "Preparing prank reveal..."
+];
+let i = 0;
+const status = document.getElementById("status");
+const log = document.getElementById("log");
+const progress = document.getElementById("progress");
+
+function step() {
+  if (i < messages.length) {
+    status.textContent = messages[i];
+    log.innerHTML += "&gt; " + messages[i] + "<br>";
+    progress.style.width = ((i + 1) / messages.length * 100) + "%";
+    i++;
+    setTimeout(step, 1200);
+  } else {
+    document.getElementById("scanner").style.display = "none";
+    document.getElementById("reveal").style.display = "block";
+  }
+}
+step();
+</script>
+</body>
+</html>
+
+
